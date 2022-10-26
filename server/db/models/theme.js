@@ -23,8 +23,3 @@ module.exports = (sequelize, DataTypes) => {
   });
   return Theme;
 };
-
-quest: DataTypes.STRING,
-answer: DataTypes.STRING,
-price: DataTypes.STRING,
-theme_id: DataTypes.INTEGER,
