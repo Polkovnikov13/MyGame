@@ -8,9 +8,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   FormControl, FormControlLabel, FormLabel, Grid, Radio, RadioGroup,
 } from '@mui/material';
-import { setModal } from '../features/modalSlice/modalSlice';
-import { setStatus } from '../features/statusSlice/statusSlice';
-import { setCounter } from '../features/counterSlice/counterSlice';
+import { setModal } from '../redux/Slices/modalSlice/modalSlice';
+import { setStatus } from '../redux/Slices/statusSlice/statusSlice';
+import { setCounter } from '../redux/Slices/counterSlice/counterSlice';
 
 const style = {
   position: 'absolute',

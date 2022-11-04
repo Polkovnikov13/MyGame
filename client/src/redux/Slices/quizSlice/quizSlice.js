@@ -19,5 +19,5 @@ export default quizSlice.reducer;
 
 export const allTopics = () => (dispatch) => {
   axios.get('http://localhost:3001/api/quize')
-    .then((res) => dispatch(setTopics(res.data)));
+    .then((res) => dispatch(setTopics(res.data))).catch(console.log);
 };

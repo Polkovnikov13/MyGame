@@ -14,7 +14,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { oldUser } from '../../features/userSlice/userSlice';
+import { oldUser } from '../../redux/Slices/userSlice/userSlice';
 
 const theme = createTheme();
 

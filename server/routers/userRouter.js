@@ -4,17 +4,17 @@ const { User } = require('../db/models');
 
 const router = express.Router();
 
-router.post('/signup', async (req, res) => {
-  const { name, email, password } = req.body;
+router.post('/registration', async (req, res) => {
+  const { name, email, password } = req.body.inputs;
   if (name && email && password) {
     try {
       const [user, created] = await User.findOrCreate({
         where: { email },
-        defaults: { name, hashpass: await bcrypt.hash(password, 10) },
+        defaults: { name, password: await bcrypt.hash(password, 10) },
       });
       if (created) {
         const sessionUser = JSON.parse(JSON.stringify(user));
-        delete sessionUser.hashpass;
+        delete sessionUser.password;
         req.session.user = sessionUser;
         return res.json(sessionUser);
       }
@@ -28,15 +28,15 @@ router.post('/signup', async (req, res) => {
 });
 
 router.post('/login', async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password } = req.body.inputs;
   if (email && password) {
     try {
       const user = await User.findOne({
         where: { email },
       });
-      if (await bcrypt.compare(password, user.hashpass)) {
+      if (await bcrypt.compare(password, user.password)) {
         const sessionUser = JSON.parse(JSON.stringify(user));
-        delete sessionUser.hashpass;
+        delete sessionUser.password;
         req.session.user = sessionUser;
         return res.json(sessionUser);
       }

@@ -13,7 +13,7 @@ import PsychologyIcon from '@mui/icons-material/Psychology';
 import MenuItem from '@mui/material/MenuItem';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { logoutUser } from '../features/userSlice/userSlice';
+import { logoutUser } from '../redux/Slices/userSlice/userSlice';
 
 function ResponsiveAppBar() {
   const user = useSelector((state) => state.user);

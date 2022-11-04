@@ -2,7 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { useDispatch, useSelector } from 'react-redux';
-import { setModal } from '../features/modalSlice/modalSlice';
+import { setModal } from '../redux/Slices/modalSlice/modalSlice';
 
 const style = {
   width: 200,

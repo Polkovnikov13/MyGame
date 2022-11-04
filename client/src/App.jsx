@@ -6,7 +6,7 @@ import MainPage from './Components/MainPage';
 import ResponsiveAppBar from './Components/ResponsiveAppBar';
 import Registration from './Components/Registration/Registration';
 import LogIn from './Components/LogIn/LogIn';
-import { checkUser } from './features/userSlice/userSlice';
+import { checkUser } from './redux/Slices/userSlice/userSlice';
 
 function App() {
   const dispatch = useDispatch();
@@ -23,6 +23,7 @@ function App() {
         <Route path="/" element={<MainPage />} />
         <Route path="/api/user/registration" element={<Registration />} />
         <Route path="/api/user/login" element={<LogIn />} />
+        {/* <Route path="*" element={<p>Path not resolved</p>} /> */}
       </Routes>
     </Container>
   );
