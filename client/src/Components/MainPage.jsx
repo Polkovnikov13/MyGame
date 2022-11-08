@@ -1,10 +1,13 @@
-import { Autocomplete } from '@mui/material';
+import { Autocomplete, Button } from '@mui/material';
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import QuizLine from './QuizLine';
 
 export default function MainPage() {
   const count = useSelector((state) => state.counter);
+  const user = useSelector((state) => state.user);
+  const navigate = useNavigate();
   return (
     <>
       <div className="image">
@@ -18,7 +21,15 @@ export default function MainPage() {
           {count < 0 ? `У вас отрицательный счет : ${count}` : `ВАШ СЧЁТ ${count}`}
         </h1>
       </div>
-      <QuizLine />
+      {user.id ? <QuizLine /> : (
+        <div className="image">
+          <h1>
+            Для прохождения игры необходимо оформить аккаунт!
+            <Button variant="contained" onClick={() => navigate('/api/user/registration')}>registration</Button>
+          </h1>
+        </div>
+      )}
+
     </>
   );
 }

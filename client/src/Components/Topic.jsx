@@ -13,7 +13,6 @@ const style = {
 export default function Topic({ element }) {
   return (
     <div>
-
       <Box sx={style}>
         <Typography sx={{ fontWeight: 'bold', color: 'white', fontFamily: 'monospace' }} id="modal-modal-title" variant="h6" component="h2">
           {element.name}

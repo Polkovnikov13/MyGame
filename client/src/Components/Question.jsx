@@ -2,6 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
 import { setModal } from '../redux/Slices/modalSlice/modalSlice';
 
 const style = {
@@ -20,9 +21,8 @@ export default function Question({ element }) {
   };
   return (
     <div>
-
       <Box sx={status.includes(element.id) ? { ...style, bgcolor: '#e7e6e1' } : style}>
-        <Typography style={status.includes(element.id) ? { opacity: '0' } : { color: 'black' }} onClick={() => modalHandler(element)} id="modal-modal-title" variant="h6" component="h2">
+        <Typography style={status.includes(element.id) ? { opacity: '0' } : { color: 'black' }} onClick={status.includes(element.id) ? null : () => modalHandler(element)} id="modal-modal-title" variant="h6" component="h2">
           <div className="textstyle">
             <div>{element.price}</div>
           </div>

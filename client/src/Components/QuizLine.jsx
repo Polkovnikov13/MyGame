@@ -16,7 +16,7 @@ export default function QuizLine() {
   return (
     <>
       {topics?.map((elem) => (
-        <Stack key={elem.id} direction="row" spacing={2}>
+        <Stack key={elem.id} direction="row" spacing={3}>
           <Topic key={elem.id} element={elem} />
           {elem.Quests.map((el) => <Question key={el.id} element={el} />)}
         </Stack>
